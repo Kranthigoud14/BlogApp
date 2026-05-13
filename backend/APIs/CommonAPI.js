@@ -92,7 +92,7 @@ commonApp.post("/login", async (req, res) => {
   //set token to res header as httpOnly cookie
   res.cookie("token", signedToken, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "none",
   });
   //remove password from user document
@@ -108,7 +108,7 @@ commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "none",
   });
   //send res
