@@ -12,7 +12,7 @@ import cloudinary from "../config/cloudinary.js";
 config();
 
 //Route for register
-commonApp.post("/users", upload.single("profileImageUrl"), async (req, res) => {
+commonApp.post("/users", upload.single("profileImageUrl"), async (req, res,next) => {
   let cloudinaryResult;
   try {
     let allowedRoles = ["USER", "AUTHOR"];
@@ -49,7 +49,7 @@ commonApp.post("/users", upload.single("profileImageUrl"), async (req, res) => {
   } catch (err) {
     console.log("err is ", err);
     //delete image from cloudinary
-    if (cloudinaryResult.public_id) {
+    if (cloudinaryResult?.public_id) {
       await cloudinary.uploader.destroy(cloudinaryResult.public_id);
     }
     next(err);
