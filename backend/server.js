@@ -13,7 +13,7 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:['https://blog-app-n8bd.vercel.app'],
+  origin:['https://blog-app-n8bd.vercel.app/'],
   credentials:true
 }))
 //add cookie parser middeleware
