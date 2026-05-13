@@ -13,9 +13,12 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin:['https://blog-app-n8bd.vercel.app/'],
-  credentials:true
-}))
+  origin: [
+    "http://localhost:5173",
+    "https://blog-app-n8bd.vercel.app"
+  ],
+  credentials: true,
+}));
 //add cookie parser middeleware
 app.use(cookieParser())
 //body parser middleware
